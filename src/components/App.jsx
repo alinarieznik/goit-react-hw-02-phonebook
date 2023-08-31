@@ -32,6 +32,12 @@ class App extends Component {
     this.setState({ filter: newContact });
   };
 
+  deleteContact = contactId => {
+    this.setState(pState => ({
+      contacts: pState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
+
   filterContacts = () => {
     return this.state.contacts.filter(contact =>
       contact.name.toLowerCase().includes(this.state.filter.toLowerCase())
@@ -48,7 +54,11 @@ class App extends Component {
           filter={this.state.filter}
           onChangeContacts={this.changeContacts}
         />
-        <ContactList options={this.filterContacts()} id={nanoid()} />
+        <ContactList
+          options={this.filterContacts()}
+          id={nanoid()}
+          onDelete={this.deleteContact}
+        />
       </div>
     );
   }
