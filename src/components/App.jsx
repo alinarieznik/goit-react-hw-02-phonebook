@@ -4,13 +4,6 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 
-// const initialValues = {
-//   contacts: [],
-//   filter: '',
-//   name: '',
-//   number: '',
-// };
-
 class App extends Component {
   state = {
     contacts: [
@@ -23,9 +16,15 @@ class App extends Component {
   };
 
   addContact = newContact => {
+    for (let contact of this.state.contacts) {
+      if (newContact.name.toLowerCase() === contact.name.toLowerCase()) {
+        return alert(`${newContact.name.toUpperCase()} is already in contacts`);
+      }
+    }
     const list = this.setState(pState => ({
       contacts: [...pState.contacts, { id: nanoid(), ...newContact }],
     }));
+
     return list;
   };
 
