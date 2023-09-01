@@ -57,7 +57,6 @@ class App extends Component {
         />
         <ContactList
           options={this.filterContacts()}
-          id={nanoid()}
           onDelete={this.deleteContact}
         />
       </StyledLayout>
