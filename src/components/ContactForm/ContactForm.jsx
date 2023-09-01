@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import {
+  StyledForm,
   StyledContactForm,
   Label,
   StyledField,
@@ -26,7 +27,7 @@ const ContactSchema = Yup.object().shape({
 
 export const ContactForm = ({ onAdd }) => {
   return (
-    <div>
+    <StyledForm>
       <Formik
         initialValues={{ name: '', number: '' }}
         validationSchema={ContactSchema}
@@ -55,6 +56,6 @@ export const ContactForm = ({ onAdd }) => {
           <Button type="submit">Add contact</Button>
         </StyledContactForm>
       </Formik>
-    </div>
+    </StyledForm>
   );
 };

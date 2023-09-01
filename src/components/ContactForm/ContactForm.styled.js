@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
+export const StyledForm = styled.div`
+  max-width: 400px;
+`;
+
 export const StyledContactForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
   gap: 20px;
   border-radius: 2px;
   border: 1px solid black;
@@ -26,6 +30,9 @@ export const Button = styled.button`
   border: 1px solid #e3e6e7;
   border-radius: 8px;
   background: white;
+  &:hover , &: focus {
+    background-color: blue;
+  }
 `;
 
 export const StyledErrorMessage = styled(ErrorMessage)`

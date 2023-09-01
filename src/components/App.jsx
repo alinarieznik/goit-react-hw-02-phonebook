@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
+import { StyledLayout } from './App.styled';
 
 class App extends Component {
   state = {
@@ -46,7 +47,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <StyledLayout>
         <h1>Phonebook</h1>
         <ContactForm onAdd={this.addContact} />
         <h2>Contacts</h2>
@@ -59,7 +60,7 @@ class App extends Component {
           id={nanoid()}
           onDelete={this.deleteContact}
         />
-      </div>
+      </StyledLayout>
     );
   }
 }

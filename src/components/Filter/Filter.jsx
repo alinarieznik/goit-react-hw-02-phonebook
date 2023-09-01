@@ -1,9 +1,15 @@
+import { StyledFilter, StyledInput } from './Filter.styled';
+
 export const Filter = ({ onChangeContacts }) => {
   return (
-    <input
-      onChange={e => {
-        onChangeContacts(e.currentTarget.value);
-      }}
-    ></input>
+    <StyledFilter htmlFor="filter">
+      Find contacts by name
+      <StyledInput
+        name="filter"
+        onChange={e => {
+          onChangeContacts(e.currentTarget.value);
+        }}
+      ></StyledInput>
+    </StyledFilter>
   );
 };
